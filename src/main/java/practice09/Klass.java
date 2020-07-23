@@ -16,7 +16,7 @@ public class Klass {
 
     public void assignLeader(Student leader) {
         if(leader.getKlass()==null||!leader.getKlass().equals(this))
-            System.out.println("It is not one of us.");
+            System.out.print("It is not one of us.\n");
         else this.leader = leader;
     }
     public void appendMember(Student student){

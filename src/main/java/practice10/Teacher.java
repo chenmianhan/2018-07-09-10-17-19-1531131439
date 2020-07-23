@@ -24,9 +24,9 @@ public class Teacher extends Person {
         else {
             String classNum="";
             for (Klass klass:classes) {
-                classNum+=klass.getNumber()+",";
+                classNum+=klass.getNumber()+", ";
             }
-            classNum=classNum.substring(0,classNum.length()-1);
+            classNum=classNum.substring(0,classNum.length()-2);
             intro+="I teach Class "+ classNum+".";
         }
         return intro;

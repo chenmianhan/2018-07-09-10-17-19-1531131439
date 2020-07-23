@@ -1,10 +1,15 @@
 package practice11;
 
+import java.util.List;
+
 public class Teacher extends Person implements JoinObserver {
     public List<Klass> classes;
-    public Teacher(int id,String name, int age ,List<Klass> klasses){
+    public Teacher(int id,String name, int age ,List<Klass> classes){
         super(id,name, age);
-        this. classes=klasses;
+        this. classes=classes;
+        for(int i=0;i<classes.size();i++){
+            classes.get(i).getJoinObservers().add(this);
+        }
     }
     public Teacher(int id,String name,int age){
         super(id,name,age);
@@ -22,9 +27,9 @@ public class Teacher extends Person implements JoinObserver {
         else {
             String classNum="";
             for (Klass klass:classes) {
-                classNum+=klass.getNumber()+",";
+                classNum+=klass.getNumber()+", ";
             }
-            classNum=classNum.substring(0,classNum.length()-1);
+            classNum=classNum.substring(0,classNum.length()-2);
             intro+="I teach Class "+ classNum+".";
         }
         return intro;
@@ -49,13 +54,13 @@ public class Teacher extends Person implements JoinObserver {
 
     @Override
     public void notifyLeaderAssgin(Student student) {
-        System.out.println(String.format("I am %s. I know %s become Leader of Class %s.",
-                getName(),student.getName(),student.getKlass()));
+        System.out.print(String.format("I am %s. I know %s become Leader of Class %s.\n",
+                getName(),student.getName(),student.getKlass().getNumber()));
     }
 
     @Override
     public void notifyMemberAppend(Student student) {
-        System.out.println(String.format("I am %s. I know %s has joined Class %s.",
-                getName(),student.getName(),student.getKlass()));
+        System.out.print(String.format("I am %s. I know %s has joined Class %s.\n",
+                getName(),student.getName(),student.getKlass().getNumber()));
     }
 }

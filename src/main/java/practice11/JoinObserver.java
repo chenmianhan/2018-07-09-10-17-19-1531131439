@@ -1,4 +1,6 @@
-package com.company;
+package practice11;
+
+import practice11.Student;
 
 /****
  *@author:cmh
