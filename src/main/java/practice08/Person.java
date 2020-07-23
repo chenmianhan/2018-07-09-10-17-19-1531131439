@@ -6,10 +6,11 @@ public class Person {
     public String name;
     public int age;
     public int id;
-    public Person(int id,String name,int age){
-        this.name=name;
-        this.age=age;
-        this.id=id;
+
+    public Person(int id, String name, int age) {
+        this.name = name;
+        this.age = age;
+        this.id = id;
     }
 
     public String getName() {
@@ -24,8 +25,8 @@ public class Person {
         return id;
     }
 
-    public String introduce(){
-        return "My name is "+name+". I am "+age+" years old.";
+    public String introduce() {
+        return "My name is " + name + ". I am " + age + " years old.";
     }
 
     @Override

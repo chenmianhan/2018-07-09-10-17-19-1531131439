@@ -1,7 +1,7 @@
 package practice09;
 
 public class Teacher extends Person {
-    public Klass klass;
+    private Klass klass;
     public Teacher(int id,String name, int age ,Klass klass){
         super(id,name, age);
         this.klass=klass;

@@ -3,15 +3,16 @@ package practice09;
 import java.util.Objects;
 
 public class Person {
-    private String name;
-    private int age;
-    private int id;
+    private final String name;
+    private final int age;
+    private final int id;
 
-    public Person(int id,String name,int age){
-        this.name=name;
-        this.age=age;
-        this.id=id;
+    public Person(int id, String name, int age) {
+        this.name = name;
+        this.age = age;
+        this.id = id;
     }
+
     public String getName() {
         return name;
     }
@@ -24,8 +25,8 @@ public class Person {
         return id;
     }
 
-    public String introduce(){
-        return "My name is "+name+". I am "+age+" years old.";
+    public String introduce() {
+        return "My name is " + name + ". I am " + age + " years old.";
     }
 
     @Override

@@ -1,10 +1,11 @@
 package practice10;
 
 public class Student extends Person {
-    Klass klass;
-    public Student(int id ,String name, int age, Klass klass){
-        super(id,name,age);
-        this.klass=klass;
+    private Klass klass;
+
+    public Student(int id, String name, int age, Klass klass) {
+        super(id, name, age);
+        this.klass = klass;
     }
 
     Klass getKlass() {
@@ -17,9 +18,9 @@ public class Student extends Person {
 
     @Override
     public String introduce() {
-        if(getKlass().getLeader()==null||!getKlass().getLeader().equals(this))
-            return super.introduce()+" I am a Student. I am at "+klass.getDisplayName()+".";
-        else return super.introduce()+" I am a Student. I am Leader of "+klass.getDisplayName()+".";
+        if (getKlass().getLeader() == null || !getKlass().getLeader().equals(this))
+            return super.introduce() + " I am a Student. I am at " + klass.getDisplayName() + ".";
+        return super.introduce() + " I am a Student. I am Leader of " + klass.getDisplayName() + ".";
 
     }
 }

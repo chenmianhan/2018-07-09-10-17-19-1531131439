@@ -1,10 +1,11 @@
 package practice07;
 
 public class Student extends Person {
-    public Klass  klass;
-    public Student(String name,int age,Klass klass){
-        super(name,age);
-        this.klass=klass;
+    public Klass klass;
+
+    public Student(String name, int age, Klass klass) {
+        super(name, age);
+        this.klass = klass;
     }
 
     public Klass getKlass() {
@@ -13,6 +14,6 @@ public class Student extends Person {
 
     @Override
     public String introduce() {
-        return super.introduce()+" I am a Student. I am at "+klass.getDisplayName()+".";
+        return super.introduce() + " I am a Student. I am at " + klass.getDisplayName() + ".";
     }
 }
