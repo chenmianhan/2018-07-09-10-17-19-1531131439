@@ -21,7 +21,7 @@ public class Teacher extends Person {
     public String introduce() {
         String intro = super.introduce() + " I am a Teacher. ";
         if (klass == null) intro += "I teach No Class.";
-        else intro += "I teach Class " + klass.getNumber() + ".";
+        else intro += String.format("I teach Class %s.", klass.getNumber());
         return intro;
     }
 
@@ -30,7 +30,7 @@ public class Teacher extends Person {
         if (getKlass().getNumber() != student.getKlass().getNumber()) {
             intro += "I don't teach " + student.getName() + ".";
         } else {
-            intro += "I teach " + student.getName() + ".";
+            intro += String.format("I teach %s.", student.getName());
         }
         return intro;
     }

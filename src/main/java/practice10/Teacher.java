@@ -3,7 +3,7 @@ package practice10;
 import java.util.List;
 
 public class Teacher extends Person {
-    public List<Klass> classes;
+    private List<Klass> classes;
 
     public Teacher(int id, String name, int age, List<Klass> klasses) {
         super(id, name, age);
@@ -24,12 +24,12 @@ public class Teacher extends Person {
         String intro = super.introduce() + " I am a Teacher. ";
         if (classes == null || classes.size() == 0) intro += "I teach No Class.";
         else {
-            String classNum = "";
+            StringBuilder classNum = new StringBuilder();
             for (Klass klass : classes) {
-                classNum += klass.getNumber() + ", ";
+                classNum.append(klass.getNumber()).append(", ");
             }
-            classNum = classNum.substring(0, classNum.length() - 2);
-            intro += "I teach Class " + classNum + ".";
+            classNum = new StringBuilder(classNum.substring(0, classNum.length() - 2));
+            intro += String.format("I teach Class %s.", classNum.toString());
         }
         return intro;
     }
@@ -37,9 +37,9 @@ public class Teacher extends Person {
     public String introduceWith(Student student) {
         String intro = super.introduce() + " I am a Teacher. ";
         if (!isTeaching(student)) {
-            intro += "I don't teach " + student.getName() + ".";
+            intro += String.format("I don't teach %s.", student.getName());
         } else {
-            intro += "I teach " + student.getName() + ".";
+            intro += String.format("I teach %s.", student.getName());
         }
         return intro;
     }

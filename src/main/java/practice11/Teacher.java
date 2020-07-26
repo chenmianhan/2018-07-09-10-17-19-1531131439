@@ -3,7 +3,7 @@ package practice11;
 import java.util.List;
 
 public class Teacher extends Person implements JoinObserver, AssignObserver {
-    public List<Klass> classes;
+    private List<Klass> classes;
 
     public Teacher(int id, String name, int age, List<Klass> classes) {
         super(id, name, age);
@@ -33,7 +33,7 @@ public class Teacher extends Person implements JoinObserver, AssignObserver {
                 classNum.append(klass.getNumber()).append(", ");
             }
             classNum = new StringBuilder(classNum.substring(0, classNum.length() - 2));
-            intro += "I teach Class " + classNum + ".";
+            intro += String.format("I teach Class %s.", classNum);
         }
         return intro;
     }
@@ -41,9 +41,9 @@ public class Teacher extends Person implements JoinObserver, AssignObserver {
     public String introduceWith(Student student) {
         String intro = super.introduce() + " I am a Teacher. ";
         if (!isTeaching(student)) {
-            intro += "I don't teach " + student.getName() + ".";
+            intro += String.format("I don't teach %s.", student.getName());
         } else {
-            intro += "I teach " + student.getName() + ".";
+            intro += String.format("I teach %s.", student.getName());
         }
         return intro;
     }
